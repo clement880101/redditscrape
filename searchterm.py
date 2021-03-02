@@ -5,7 +5,7 @@ import praw
 
 def main():
     search_term = "gme"
-    category = "stocks"
+    category = "all"
 
     client_id = 'lql9yxsiL66vew'
     client_secret = ''
@@ -13,7 +13,7 @@ def main():
 
     reddit = praw.Reddit(client_id=client_id, client_secret=client_secret, user_agent=user_agent)
 
-    # Some subreddits can opt out from /all, therefore we used another way to search
+    # Instead of /all, this search is more comprehensive
     list = reddit.subreddits.search(category)
 
     maxutc = (datetime.utcnow().timestamp() // 86400) * 86401
@@ -31,7 +31,7 @@ def main():
                     break
         print("complete")
 
-    name = search_term + ":" + category + ".csv"
+    name = search_term + "," + category + ".csv"
     data.to_csv(name, index=True)
 
 
