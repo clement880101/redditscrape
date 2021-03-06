@@ -3,10 +3,12 @@ from sklearn.preprocessing import StandardScaler
 
 
 def main():
-    dataframe = pd.read_csv("redditinterest.csv", index_col=0)
-    scalar = StandardScaler()
-    dataframe = scalar.fit_transform(dataframe)
-    print(dataframe)
+    df = pd.read_csv("redditinterest.csv", index_col=0)
+    df = df.loc[:, (df != 0).any(axis=0)]
+    print(df)
+    scaler = StandardScaler()
+    df = scaler.fit_transform(df)
+    print(df)
 
 
 if __name__ == "__main__":

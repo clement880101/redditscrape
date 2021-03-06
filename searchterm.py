@@ -14,7 +14,7 @@ def main():
     category = ["stock"] * len(search_term)
     period = 300
     time_filter="year"
-    output = "redditinterest.csv"
+    output = "redditinterest2.csv"
 
     client_id = 'lql9yxsiL66vew'
     client_secret = 'O41A6Bu5IySyhtw7hzWyfFjGniCV0Q'
